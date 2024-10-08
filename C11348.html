@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title>C11348</title>
+	<style>
+           .centro {
+              text-align: center;
+           }
+ 	</style> 
+ 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+ 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<script>
+		function Ug(){
+		   let h = prompt("Escriba un valor cualquiera para la altura final de la canica al ser disparada, el valor debe ser positivo y si va a usar decimales utilice punto en vez de coma", "Escriba su valor aquí");
+		   if (h != null && h > 0) {
+			let U = 0.005 * 9.8 * h;
+			document.getElementById("resultado").innerHTML = "El cambio de la energía potencial gravitacional cuando la canica alcanza " + h + "m es de: " + U.toFixed(2) + "J";
+		   } else { 
+			document.getElementById("resultado").innerHTML = "Por favor ingrese un valor válido";
+		   }
+		}
+	</script>
+	<script>
+		function ks(){
+		   let x = prompt("Escriba cuántos centímetros desea que el resorte se comprima, escriba sólo valores positivos y si va a usar decimales utilice punto en vez de coma", "Escriba su valor aquí");
+		   if (x != null && x > 0) {
+			let k = ((2*0.98)/(x*x))*100;
+			document.getElementById("resultado2").innerHTML = "La constante de elasticidad del resorte, si este se comprime " + x + "cm, es de: " + k.toFixed(2) + "N/cm";
+		   } else { 
+			document.getElementById("resultado2").innerHTML = "Por favor ingrese un valor válido";
+		   }
+
+}
+	</script>
+</head>
+<body>
+    <h1>Tarea programada Mecánica teórica I</h1>
+    <h2>Mavi Calderón Badilla C11348</h2>
+    <p>El problema escogido a realizar es el número 13 del capítulo 8 del libro Halliday & Resnick 12 edición, el cuál dice lo siguiente: </p>
+
+<div class="centro">
+    <img src="C:\Users\35677\OneDrive\Documentos\Universidad\Mecánica Teorica I/Problema13.png" alt="Problema 13 capítulo 8" width="450" height="200" />
+</div>
+
+ <p> A continuación se mostrará la solución a cada parte del problema </p>
+
+    <h3>Parte a)</h3>
+
+	<p>En el inciso a) nos piden calcular el cambio de la energía potencial gravitacional, en los 20m de ascenso de la canica, para ello utilizamos la siguiente fórmula: </p>
+
+	<p>$$ \Delta U_g = mg\Delta h = mg(h_f - h_i)\tag{1}$$</p>
+	
+	<p>Siendo m la masa, g la gravedad, \(h_f\) la altura final de la canica y \(h_i,\) la altura inicial en la que la canica pierde contacto con el resorte. En el enunciado del problema nos dicen que la masa de la canica es de 5g = 0,005kg. </p>
+	<p>Es importante realizar un sistema de coordenadas para tener un marco de referencia a la hora de ubicar posiciones, el sistema de coordenadas que utilizamos para resolver este problema es el siguiente:</p>
+
+	<div class="centro">
+    <img src="C:\Users\35677\OneDrive\Documentos\Universidad\Mecánica Teorica I/graficapistola.png" alt="Esquema del sistema" width="300" height="600" />
+</div>
+	<p>Podemos notar que la altura inicial, donde la canica se separa del resorte, es en cero y alcanza una altura final de 20m. Si sustituimos estos valores de altura en la ecuación (1), obtenemos lo siguiente:
+	<p>$$ \Delta U_g = 0.005kg * 9.8 \frac{m}{s^2} * (20m - 0m) = 0.98 J $$</p>
+
+ 	<p>Ahora veamos cómo cambia el cambio de energía potencial gravitacional, con diferentes alcances de la canica. Haciendo click en el siguiente botón, puede ingresar la altura final que desee que alcanza la canica.
+
+	<button onclick="Ug()">Click</button>
+
+	<p id="resultado"></p>
+
+    <h3>Parte b)</h3>
+	<p>En el inciso b) del problema nos solicitan calcular el cambio de la energía potencial elástica de la cánica. Por conservación de energía es fácil calcularlo ya que tenemos que: </p>
+
+	<p> $$ \Delta E_T = \Delta K + \Delta U_g + \Delta U_s = 0 \tag{2}$$</p>
+	<p> Siendo \(\Delta E_t\) el cambio de la energía total, \(\Delta K\) el cambio de energía cinética, \(\Delta U_g\) el cambio de la energía potencial gravitacional y \(\Delta U_s\) el cambio de la energía potencial elástica. Sabemos que el cambio de la energía cinética es el siguiente:</p>
+	<p> $$ \Delta K = \frac{1}{2}*m*((v_f)^2-(v_i)^2) $$ </p>
+	<p> Siendo \(v_f\) y \(v_i\) la velocidad final e inicial respectivamente. Sin embargo, la velocidad inicial y final de la canica son cero, por lo tanto el cambio de la energía cinética va a ser cero. Sabiendo esto podemos reescribir la ecuación (2) de la siguiente manera: </p>
+	<p> $$ \Delta E_T = \Delta U_s + \Delta U_g = 0 $$</p>
+	<p> Ahora si pasamos el cambio de la energía potencial gravitacional a restar, obtenemos:</p>
+	<p>$$ \Delta U_s = -\Delta U_g \tag{3}$$
+	<p> Por ende, concluímos que la energía potencial elástica va a ser igual al negativo de la energía potencial gravitacional, por consiguiente: </p>
+	<p> $$ \Delta U_s = -0.98 J $$
+
+   <h3>Parte c)</h3> 
+	<p>Por último, en el inciso c), nos piden calcular la constante de elásticidad del resorte, para ello podemos utilizar el resultado del inciso b) igualándolo a la ecuación del cambio de la energía potencial elástica, la cual es la siguiente:</p> 
+	<p>$$ \Delta U_s = \frac{1}{2}*k*((x_f)^2 - (x_i)^2)= -0.98 J \tag{4}$$</p>
+	<p>Siendo k la constante de elasticidad, \(x_f\) el punto final de la canica en el resorte y \(x_i\) el punto inicial de la canica en el resorte. Entonces de la ecuacion (4) podemos despejar k, que es la variable que estamos buscando:</p>
+	<p>$$ k = \frac{2*-0.98J}{((x_f)^2-(x_i)^2)} \tag{5}$$</p>
+	<p> Tomando en cuenta el mismo sistema de coordenadas que usamos anteriormente, podemos observar que el punto final de la canica en el resorte es en 0m y el punto inicial de la canica en el resorte es en -0.08m, sustituyendo estos valores en la ecuación (5), obtenemos lo siguiente:</p>
+	<p>$$ k = \frac{2*-0.98J}{((0m)^2-(-0.08m)^2)} = 306.25 \frac{N}{m} = 3.1 \frac{N}{cm}\tag{5}$$</p>
+	<p>Por lo tanto, la constante de elásticidad del resorte es de 3.1 \(\frac{N}{cm}\).</p>
+	<p> ¿Cómo cambiaría este resultado si el resorte se comprime en diferentes cantidades? Para ver como puede variar la constante de elasticidad ingrese en el siguiente botón cuántos centímetros quiere que el resorte se comprima para observar la diferencia.</p>
+
+<button onclick="ks()">Click</button>
+
+<p id="resultado2"></p>
+
+</body>
+</html>
